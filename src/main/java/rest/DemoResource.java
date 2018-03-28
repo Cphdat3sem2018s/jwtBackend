@@ -32,7 +32,7 @@ public class DemoResource {
     @RolesAllowed("user")
     public String getFromUser(){
         String user = securityContext.getUserPrincipal().getName();
-        return "\"Hello from USER: "+ user+"\"";
+        return "\"This message if from the server (requires the user role): Hello from USER: "+ user+"\"";
     }
     
     @GET
@@ -40,7 +40,7 @@ public class DemoResource {
     @Path("admin")
     @RolesAllowed("admin")
     public String getFromAdmin() {
-        String user = securityContext.getUserPrincipal().getName();
-        return "\"Hello from ADMIN"+ user+"\"";
+        String admin = securityContext.getUserPrincipal().getName();
+        return "\"This message if from the server (requires the admin role):Hello from ADMIN"+ admin+"\"";
     }
 }
